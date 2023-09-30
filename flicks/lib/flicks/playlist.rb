@@ -15,7 +15,7 @@ class Playlist
 
     def print_stat
         puts "".center(43, "-")
-        puts " #{@name}'s playlist 📺 ".center(42, ".\\^@>*:=<*")
+        puts " #{@name}'s 📽️  ranking".center(42, ".\\^@>*:=<*")
         puts "".center(43, "-")
         puts sorted_movies
 

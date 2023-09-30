@@ -13,7 +13,21 @@ chipmunks = Game.new("Winner Takes All")
 chipmunks.add_player(p1)
 chipmunks.add_player(p2)
 chipmunks.add_player(p3)
-#play the game
-chipmunks.play(2)
-# print stats
-chipmunks.print_stat
+
+loop do
+    print "\nHow many game rounds? ('quit' to exit) "
+    answer = gets.chomp.downcase
+
+    case answer
+    when /^\d+$/
+        #play the game
+        chipmunks.play(answer.to_i)
+    when "exit", "quit", "q"
+        # print stats
+        puts ""
+        chipmunks.print_stat
+        break
+    else
+        puts "Please enter a number 😾"
+    end
+end

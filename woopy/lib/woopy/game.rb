@@ -21,13 +21,18 @@ class Game
         puts ""
 
         1.upto(rounds) do |round|
+            puts "\n[Round ##{round}]:"
             @players.each do |player|
                 number_rolled = roll_die
                 case number_rolled
                 when 1..2
                     player.drain
+                    puts "#{player.name} got drained 😾"
                 when 5..6
+                    puts "#{player.name} got skipped 😿"
+                else
                     player.boost
+                    puts "#{player.name} got boosted 😽"
                 end
 
                 unless number_rolled in 3..4  # players who are skipped shouldn't obtain a treasure

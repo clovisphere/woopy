@@ -9,5 +9,17 @@ playlist.add_movie(Movie.new("Pretty Woman", 6))
 playlist.add_movie(Movie.new("Gladiator", 2))
 playlist.add_movie(Movie.new("Ghost", 3))
 
-playlist.play(1)
-playlist.print_stat
+loop do
+    print "How many viewings? ('quit' to exit) "
+    answer = gets.chomp.downcase
+
+    case answer
+    when /^\d+$/
+        playlist.play(answer.to_i)
+    when "exit", "quit", "q"
+        playlist.print_stat
+        break
+    else
+        puts "Please enter a number 🫢"
+    end
+end
