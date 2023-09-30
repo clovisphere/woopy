@@ -20,7 +20,7 @@ class Player
 
     def drain = @health -= 10
 
-    def to_s = "I'm #{@name} with a health of #{@health} and a score of #{score} -> #{@found_treasures}"
+    def to_s = "I'm #{@name} with health = #{@health}, points = #{points} and score = #{score}"
 
     private
 
