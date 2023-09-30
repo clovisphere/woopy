@@ -5,6 +5,11 @@ class Movie
     def initialize(title, rank = 0)
         @title = title.split.map(&:capitalize)*' '  # capitalize all words in a string
         @rank = rank
+        @snacks_eaten = Hash.new(0)
+    end
+
+    def add_snack(name, price)
+        @snacks_eaten[name] += price
     end
 
     def thumbs_up = @rank +=1
