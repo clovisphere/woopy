@@ -15,6 +15,9 @@ class Game
             player = Player.from_csv(row)
             add_player(player)
         end
+    rescue Errno::ENOENT
+        puts "woopy: #{from_file} 📃 not found!"
+        exit 1
     end
 
     def save_high_scores(to_file)
