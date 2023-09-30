@@ -4,7 +4,7 @@ class Game
     Treasure = Struct.new(:name, :points)
 
     # 👉🏽 use a Data class (https://docs.ruby-lang.org/en/3.2/Data.html) instead (ruby >= 3.2)
-    #Treasure = Data.define(:name, :price)
+    #Treasure = Data.define(:name, :points)
 
     TREASURES = [
         Treasure.new("🥧", 10),
