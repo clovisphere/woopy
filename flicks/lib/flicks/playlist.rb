@@ -1,5 +1,18 @@
 class Playlist
 
+    # define a struct
+    Snack = Struct.new(:name, :price)
+
+    # 👉🏽 use a Data class (https://docs.ruby-lang.org/en/3.2/Data.html) instead (ruby >= 3.2)
+    #Snack = Data.define(:name, :price)
+
+    SNACKS = [
+        Snack.new("🍪", 2),
+        Snack.new("🍫", 5),
+        Snack.new("🌮", 6),
+        Snack.new("🍦", 3)
+    ]
+
     attr_reader :name, :movies
 
     def initialize(name)
@@ -12,6 +25,9 @@ class Playlist
     end
 
     def play(viewings = 3)
+        puts "\nThe snackbar has:"
+        SNACKS.each { |snack| puts "- #{snack.name.capitalize} for $#{'%.2f' % snack.price}" }
+
         1.upto(viewings) do | viewing_number |
              puts "\n[Viewing 📽 ️ ##{viewing_number}]:"
             @movies.each do |movie|
@@ -26,8 +42,13 @@ class Playlist
                     movie.thumbs_up
                     puts "#{movie.title} got a 👍"
                 end
+
+                snack = SNACKS.sample
+                puts "During '#{movie.title}' 🎞️ , #{@name} ate #{snack.name} for $#{snack.price}\n\n"
             end
         end
+
+        puts ""
         puts "".center(43, "-")
         puts " #{@name}'s playlist 📺 ".center(42, ".\\^@>*:=<*")
         puts "".center(43, "-")
