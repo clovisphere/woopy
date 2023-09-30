@@ -4,6 +4,12 @@ class Player
     def initialize(name, health = 100)
         @name = name.capitalize
         @health = health
+        @found_treasures = Hash.new(0)
+    end
+
+
+    def add_treasure(name, points)
+        @found_treasures[name] += points
     end
 
     def name=(new_name)
@@ -14,7 +20,7 @@ class Player
 
     def drain = @health -= 10
 
-    def to_s = "I'm #{@name} with a health of #{@health} and a score of #{score}"
+    def to_s = "I'm #{@name} with a health of #{@health} and a score of #{score} -> #{@found_treasures}"
 
     private
 
