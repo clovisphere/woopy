@@ -14,4 +14,6 @@ chipmunks.add_player(p1)
 chipmunks.add_player(p2)
 chipmunks.add_player(p3)
 #play the game
-chipmunks.play(3)
+chipmunks.play(2)
+# print stats
+chipmunks.print_stat

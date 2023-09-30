@@ -1,5 +1,5 @@
 class Player
-    attr_reader :name, :health
+    attr_reader :name, :health, :found_treasures
 
     def initialize(name, health = 100)
         @name = name.capitalize
@@ -20,11 +20,11 @@ class Player
 
     def drain = @health -= 10
 
+    def score = @health + points
+
     def to_s = "I'm #{@name} with health = #{@health}, points = #{points} and score = #{score}"
 
     private
-
-    def score = points + @health
 
     def points = @found_treasures.values.sum
 
