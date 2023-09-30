@@ -16,3 +16,8 @@ Clovis Mugaruka
 
 - [github.com/clovisphere](https://github.com/clovisphere)
 - [twitter/clovisphere](https://twitter.com/clovisphere)
+
+### License
+
+Copyright ©️ 2023, [Clovis Mugaruka](https://clovisphere.com).\
+Released under the [MIT License](/.LICENSE).
