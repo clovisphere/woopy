@@ -1,6 +1,6 @@
 class Movie
 
-    attr_reader :title, :rank
+    attr_reader :title, :rank, :snacks_eaten
 
     def initialize(title, rank = 0)
         @title = title.split.map(&:capitalize)*' '  # capitalize all words in a string
