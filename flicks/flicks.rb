@@ -9,4 +9,4 @@ playlist.add_movie(Movie.new("Pretty Woman", 7))
 playlist.add_movie(Movie.new("Jurrasic Park", 5))
 playlist.add_movie(Movie.new("Rambo 3", 3))
 
-playlist.play
+playlist.play(1)
