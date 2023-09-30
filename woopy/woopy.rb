@@ -3,16 +3,12 @@
 require_relative "lib/woopy/game"
 require_relative "lib/woopy/player"
 
-# create players
-p1 = Player.new("Hailey", 110)
-p2 = Player.new("Rihanna", 145)
-p3 = Player.new("Emilie")
 # create and initialize game
 chipmunks = Game.new("Winner Takes All")
-# add players to game
-chipmunks.add_player(p1)
-chipmunks.add_player(p2)
-chipmunks.add_player(p3)
+# .csv file containing the list of players + and their health
+from_file = File.join(__dir__, "players.csv")
+# load players from file
+chipmunks.load_players(ARGV.shift || from_file)
 
 loop do
     print "\nHow many game rounds? ('quit' to exit) "
@@ -26,6 +22,23 @@ loop do
         # print stats
         puts ""
         chipmunks.print_stat
+        # save high scores to file if user desires
+        loop do
+            print "would you like to save the high scores result? [Y/n] "
+            answer = gets.chomp.downcase
+
+            case answer
+            when "yes", "y"
+                to_file = File.join(__dir__, "high_scores.csv")
+                chipmunks.save_high_scores(to_file)
+                puts "〽️ result saved to: #{to_file.split("/").last} 📃"
+                break
+            when "no", "n"
+                break
+            else
+                puts "woopy: unknown option -- #{answer} 🙃"
+            end
+        end
         break
     else
         puts "Please enter a number 😾"

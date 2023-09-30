@@ -1,3 +1,7 @@
+# use to save ranking + high scores result on disk
+movie_rankings.csv
+high_scores.csv
+
 *.gem
 *.rbc
 /.config

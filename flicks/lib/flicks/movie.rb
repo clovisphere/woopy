@@ -12,9 +12,9 @@ class Movie
         @snacks_eaten[name] += price
     end
 
-    def thumbs_up = @rank +=1 unless @rank == 10
+    def thumbs_up = (@rank +=1 if @rank < 10)
 
-    def thumbs_down = @rank -=1 unless @rank == 0
+    def thumbs_down = (@rank -=1 if @rank > 0)
 
     def to_s
         pp_rank = "#{@rank}/10".rjust(3)  # pretty print rank 😽
