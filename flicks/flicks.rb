@@ -5,8 +5,9 @@ require_relative "lib/flicks/playlist"
 
 playlist = Playlist.new("Emilie")
 
-playlist.add_movie(Movie.new("Pretty Woman", 7))
-playlist.add_movie(Movie.new("Jurrasic Park", 5))
-playlist.add_movie(Movie.new("Rambo 3", 3))
+playlist.add_movie(Movie.new("Pretty Woman", 6))
+playlist.add_movie(Movie.new("Gladiator", 2))
+playlist.add_movie(Movie.new("Ghost", 3))
 
 playlist.play(1)
+playlist.print_stat
