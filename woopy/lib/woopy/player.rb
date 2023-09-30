@@ -22,7 +22,12 @@ class Player
 
     def score = @health + points
 
-    def self.from_csv(row) = Player.new(row[0], row[1].to_i)
+    def self.from_csv(row)
+        Player.new(row[0], Integer(row[1]))
+    rescue ArgumentError
+        puts "woopy: invalid value -- #{row[1]}"
+        Player.new(row[0])
+    end
 
     def to_s = "I'm #{@name} with health = #{@health}, points = #{points} and score = #{score}"
 

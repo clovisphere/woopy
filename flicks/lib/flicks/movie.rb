@@ -18,7 +18,10 @@ class Movie
 
     def self.from_csv(line)
         title, rank = line.split(",")
-        Movie.new(title, rank.to_i)
+        Movie.new(title, Integer(rank))
+    rescue ArgumentError
+        puts "flicks: invalid value -- #{rank}"
+        Movie.new(title)
     end
 
     def to_csv = "#{@title},#{@rank}"
