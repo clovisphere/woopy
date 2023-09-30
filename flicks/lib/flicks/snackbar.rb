@@ -15,4 +15,8 @@ module Snackbar
 
     def self.random_snack = SNACKS.sample
 
+    def self.menu_items
+        SNACKS.map { |snack| "- #{snack.name} for $#{'%.2f' % snack.price}" }
+    end
+
 end
