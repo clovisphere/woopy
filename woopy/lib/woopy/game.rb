@@ -12,7 +12,7 @@ class Game
 
     def load_players(from_file)
         CSV.foreach(from_file) do |row|
-            player = Player.new(row[0], row[1].to_i)
+            player = Player.from_csv(row)
             add_player(player)
         end
     end
