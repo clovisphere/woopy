@@ -1,20 +1,6 @@
+require_relative "treasure_trove"
+
 class Game
-
-    # define a struct
-    Treasure = Struct.new(:name, :points)
-
-    # 👉🏽 use a Data class (https://docs.ruby-lang.org/en/3.2/Data.html) instead (ruby >= 3.2)
-    #Treasure = Data.define(:name, :points)
-
-    TREASURES = [
-        Treasure.new("🥧", 10),
-        Treasure.new("🪙", 25),
-        Treasure.new("🪈", 50),
-        Treasure.new("🧭", 65),
-        Treasure.new("🔑", 80),
-        Treasure.new("👑", 90),
-        Treasure.new("⭐️", 100)
-    ]
 
     attr_reader :title, :players
 
@@ -27,7 +13,7 @@ class Game
 
     def play(rounds = 1)
         puts "\nThe following treasures can be found:"
-        TREASURES.each { |treasure| puts "- #{treasure.name} is worth #{treasure.points} points" }
+        TreasureTrove::TREASURES.each { |treasure| puts "- #{treasure.name} is worth #{treasure.points} points" }
 
         puts "\nBefore playing:"
         puts @players
@@ -46,7 +32,7 @@ class Game
                     player.boost
                     puts "#{player.name} got boosted 😺"
                 end
-                treasure = TREASURES.sample
+                treasure = TreasureTrove.random_treasure
                 puts "#{player.name} found a #{treasure.name} worth #{treasure.points} points\n\n"
             end
         end
