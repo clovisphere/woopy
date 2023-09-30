@@ -1,4 +1,4 @@
-require "csv"
+require_relative "movie"
 require_relative "snackbar"
 
 class Playlist
@@ -10,17 +10,17 @@ class Playlist
         @movies = []
     end
 
-    def load_movies(from_file)
-        CSV.foreach(from_file) do |row|
-            movie = Movie.new(row[0], row[1].to_i)
+    def load(from_file)
+        File.readlines(from_file, chomp: true).each do |line|
+            movie = Movie.from_csv(line)
             add_movie(movie)
         end
     end
 
-    def save_movies(to_file)
+    def save(to_file)
         File.open(to_file, "w") do |file|
             sorted_movies.each do |movie|
-                file.puts "#{movie.title},#{movie.rank}"
+                file.puts movie.to_csv
             end
         end
     end

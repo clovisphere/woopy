@@ -9,7 +9,7 @@ playlist = Playlist.new("Emilie")
 # .csv file containing the list of movies + their ranking
 from_file = File.join(__dir__, "movies.csv")
 # load movies from file
-playlist.load_movies(ARGV.shift || from_file)
+playlist.load(ARGV.shift || from_file)
 
 loop do
     print "how many viewings? ('quit' to exit) "
@@ -29,7 +29,7 @@ loop do
             case answer
             when "yes", "y"
                 to_file = File.join(__dir__, "movie_rankings.csv")
-                playlist.save_movies(to_file)
+                playlist.save(to_file)
                 puts "〽️ result saved to: #{to_file.split("/").last} 📃"
                 break
             when "no", "n"

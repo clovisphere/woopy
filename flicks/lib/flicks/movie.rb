@@ -16,6 +16,13 @@ class Movie
 
     def thumbs_down = (@rank -=1 if @rank > 0)
 
+    def self.from_csv(line)
+        title, rank = line.split(",")
+        Movie.new(title, rank.to_i)
+    end
+
+    def to_csv = "#{@title},#{@rank}"
+
     def to_s
         pp_rank = "#{@rank}/10".rjust(3)  # pretty print rank 😽
         "#{@title.ljust(15)} #{emoji(score: @rank, emoji: "⭐️").ljust(20)} #{pp_rank}"
