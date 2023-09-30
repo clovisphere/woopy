@@ -7,7 +7,7 @@ Code for the (textual) game app that students implement in [The Pragmatic Studio
 ## What's inside?
 
 - [ ] [flicks](./flicks)
-- [ ] [whoopy](./woopy)
+- [ ] [woopy](./woopy)
 
 
 ### Author
