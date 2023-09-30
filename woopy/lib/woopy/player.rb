@@ -24,6 +24,8 @@ class Player
 
     private
 
-    def score = @name.length + @health
+    def score = points + @health
+
+    def points = @found_treasures.values.sum
 
 end
