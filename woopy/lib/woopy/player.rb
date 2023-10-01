@@ -31,8 +31,6 @@ class Player
 
     def to_s = "I'm #{@name} with health = #{@health}, points = #{points} and score = #{score}"
 
-    private
-
     def points = @found_treasures.values.sum
 
 end

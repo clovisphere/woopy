@@ -2,13 +2,21 @@
 
 require_relative "lib/woopy/game"
 require_relative "lib/woopy/player"
+require_relative "lib/woopy/clumsy_player"
+require_relative "lib/woopy/berserker_player"
 
 # create and initialize game
-chipmunks = Game.new("Winner Takes All")
+game = Game.new("Winner Takes All")
 # .csv file containing the list of players + and their health
 from_file = File.join(__dir__, "players.csv")
 # load players from file
-chipmunks.load_players(ARGV.shift || from_file)
+game.load_players(ARGV.shift || from_file)
+# add both a clumsy and a berseker player to the game
+clumsy = ClumsyPlayer.new("klutz", 105)
+berserker = BerserkPlayer.new("berserker")
+# add player to the game
+game.add_player(clumsy)
+game.add_player(berserker)
 
 loop do
     print "\nHow many game rounds? ('quit' to exit) "
@@ -17,11 +25,11 @@ loop do
     case answer
     when /^\d+$/
         #play the game
-        chipmunks.play(answer.to_i)
+        game.play(answer.to_i)
     when "exit", "quit", "q"
         # print stats
         puts ""
-        chipmunks.print_stat
+        game.print_stat
         # save high scores to file if user desires
         loop do
             print "would you like to save the high scores result? [Y/n] "
@@ -30,7 +38,7 @@ loop do
             case answer
             when "yes", "y"
                 to_file = File.join(__dir__, "high_scores.csv")
-                chipmunks.save_high_scores(to_file)
+                game.save_high_scores(to_file)
                 puts "〽️ result saved to: #{to_file.split("/").last} 📃"
                 break
             when "no", "n"
