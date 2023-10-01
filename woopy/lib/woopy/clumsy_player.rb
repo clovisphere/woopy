@@ -1,13 +1,18 @@
 require_relative "player"
 
 class ClumsyPlayer < Player
-    def initialize(name, health)
+    def initialize(name, health = 100, boost_factor = 1)
         super(name, health)
+        @boost_factor = boost_factor
     end
 
     def add_treasure(name, points)
         points = points / 2.0
         super(name, points.to_i)
+    end
+
+    def boost
+      @boost_factor.times { super }
     end
 end
 
