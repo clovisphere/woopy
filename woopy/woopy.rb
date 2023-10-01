@@ -6,14 +6,14 @@ require_relative "lib/woopy/clumsy_player"
 require_relative "lib/woopy/berserker_player"
 
 # create and initialize game
-game = Game.new("Winner Takes All")
+game = Woopy::Game.new("Winner Takes All")
 # .csv file containing the list of players + and their health
 from_file = File.join(__dir__, "players.csv")
 # load players from file
 game.load_players(ARGV.shift || from_file)
 # add both a clumsy and a berseker player to the game
-clumsy = ClumsyPlayer.new("klutz", 105)
-berserker = BerserkPlayer.new("berserker")
+clumsy = Woopy::ClumsyPlayer.new("klutz", 105)
+berserker = Woopy::BerserkPlayer.new("berserker")
 # add player to the game
 game.add_player(clumsy)
 game.add_player(berserker)

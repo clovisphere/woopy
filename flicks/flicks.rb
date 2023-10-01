@@ -5,7 +5,7 @@ require_relative "lib/flicks/movie3d"
 require_relative "lib/flicks/playlist"
 
 # create a new playlist
-playlist = Playlist.new("Emilie")
+playlist = Flicks::Playlist.new("Emilie")
 
 # .csv file containing the list of movies + their ranking
 from_file = File.join(__dir__, "movies.csv")
@@ -13,7 +13,7 @@ from_file = File.join(__dir__, "movies.csv")
 playlist.load(ARGV.shift || from_file)
 
 # initialize a 3D Movie 😎
-m3d = Movie3D.new("godzilla", 0, 7)
+m3d = Flicks::Movie3D.new("godzilla", 0, 7)
 # add it to the playlist
 playlist.add_movie(m3d)
 

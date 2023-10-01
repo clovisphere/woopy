@@ -1,23 +1,25 @@
 require_relative "player"
 
-class ClumsyPlayer < Player
-    def initialize(name, health = 100, boost_factor = 1)
-        super(name, health)
-        @boost_factor = boost_factor
-    end
+module Woopy
+    class ClumsyPlayer < Player
+        def initialize(name, health = 100, boost_factor = 1)
+            super(name, health)
+            @boost_factor = boost_factor
+        end
 
-    def add_treasure(name, points)
-        points = points / 2.0
-        super(name, points.to_i)
-    end
+        def add_treasure(name, points)
+            points = points / 2.0
+            super(name, points.to_i)
+        end
 
-    def boost
-      @boost_factor.times { super }
+        def boost
+          @boost_factor.times { super }
+        end
     end
 end
 
 if __FILE__ == $0
-  clumsy = ClumsyPlayer.new("klutz", 105)
+  clumsy = Woopy::ClumsyPlayer.new("klutz", 105)
 
   clumsy.add_treasure("🪈", 50)
   clumsy.add_treasure("🪈", 50)
