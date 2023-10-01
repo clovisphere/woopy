@@ -1,6 +1,10 @@
-class Movie
+require_relative "rankable"
 
-    attr_reader :title, :rank, :snacks_eaten
+class Movie
+    include Rankable
+
+    attr_reader :snacks_eaten
+    attr_accessor :title, :rank
 
     def initialize(title, rank = 0)
         @title = title.split.map(&:capitalize)*' '  # capitalize all words in a string
@@ -11,10 +15,6 @@ class Movie
     def add_snack(name, price)
         @snacks_eaten[name] += price
     end
-
-    def thumbs_up = (@rank +=1 if @rank < 10)
-
-    def thumbs_down = (@rank -=1 if @rank > 0)
 
     def self.from_csv(line)
         title, rank = line.split(",")
