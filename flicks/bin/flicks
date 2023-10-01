@@ -1,8 +1,8 @@
+#!/usr/bin/env ruby
+
 # let's make our own IMDB 📺
 
-require_relative "lib/flicks/movie"
-require_relative "lib/flicks/movie3d"
-require_relative "lib/flicks/playlist"
+require_relative "../lib/flicks/playlist"
 
 # create a new playlist
 playlist = Flicks::Playlist.new("Emilie")
@@ -11,11 +11,6 @@ playlist = Flicks::Playlist.new("Emilie")
 from_file = File.join(__dir__, "movies.csv")
 # load movies from file
 playlist.load(ARGV.shift || from_file)
-
-# initialize a 3D Movie 😎
-m3d = Flicks::Movie3D.new("godzilla", 0, 7)
-# add it to the playlist
-playlist.add_movie(m3d)
 
 loop do
     print "how many viewings? ('quit' to exit) "
