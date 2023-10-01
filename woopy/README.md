@@ -12,7 +12,7 @@ Prerequisites:
 ```bash
 git clone git@github.com:clovisphere/woopy.git
 cd woopy/woopy
-./bin/woopy
+./bin/woopy                  # uses the default input file, ie. players.csv
 ```
 
 You may choose not to use the [default](./bin/players.csv) file, and in that case, run the app with:
@@ -29,7 +29,7 @@ To run tests:
 rake
 ```
 
-And finally, to build and install the gem locally:
+And finally, to build and install the [gem](./woopy.gemspec) locally:
 
 ```bash
 gem build woopy.gemspec

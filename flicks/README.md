@@ -12,7 +12,7 @@ Prerequisites:
 ```bash
 git clone git@github.com:clovisphere/woopy.git
 cd woopy/flicks
-./bin/flicks    # uses the default input file, ie. movies.csv
+./bin/flicks                # uses the default input file, ie. movies.csv
 ```
 
 You may choose not to use the [default](./bin/movies.csv) file, and in that case, run the app with:
@@ -29,7 +29,7 @@ To run the tests:
 rake
 ```
 
-And finally, to build and install the gem locally:
+And finally, to build and install the [gem](./flicks.gemspec) locally:
 
 ```bash
 gem build flicks.gemspec
